@@ -5,11 +5,9 @@ const app = express()
 
 // Require API routes
 const info = require('./routes/info')
-const test = require('./routes/test')
 
 // Import API Routes
 app.use(info)
-app.use(test)
 
 // Export express app
 module.exports = app

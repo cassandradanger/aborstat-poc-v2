@@ -3,7 +3,6 @@ const rp = require('request-promise');
 const apiKey = process.env.POLICY_API_KEY;
 const router = Router()
 
-// Mock Users
 const states = [
       {
         name: 'Alabama',
@@ -207,7 +206,7 @@ const states = [
       },
     ]
   
-/* GET users listing. */
+/* GET states listing. */
 router.get('/info/list-of-states', function (req, res, next) {
   res.json(states)
 })
@@ -230,7 +229,5 @@ router.get('/info/gestational_limits/:state', function (req, res, next) {
       console.log('error', response.error);
   });
 })
-
-
 
 module.exports = router

@@ -1,16 +1,18 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <img class="logo" src="../assets/uterlight.png"/>
       <h1 class="title">
         aborstat
       </h1>
+      <label id="select-state">search by state</label>
       <select v-model="selected" name="states" id="select-state">
         <option disabled value="">select your state</option>
         <option v-for="state in states" :value="state" v-bind:key="state.abbr">{{ state.name }}</option>
       </select>
       <button @click="submitBtn">submit</button>
       <DisplayGestationalLimits :data="gestational_limit" />
+      <h6>abortion status - data provided by <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a></h6>
     </div>
   </div>
 </template>
@@ -57,14 +59,15 @@ export default {
 
 <style scoped>
 .container {
-  margin: 0 auto;
+  margin: 40px auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
 }
-
+.logo {
+  height: 200px;
+}
 .title {
   font-family:
     'Quicksand',
@@ -83,15 +86,4 @@ export default {
   letter-spacing: 1px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
