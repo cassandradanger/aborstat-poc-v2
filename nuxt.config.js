@@ -4,7 +4,7 @@ export default {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'api',
+  target: 'server',
 
   /*
   ** Headers of the page
