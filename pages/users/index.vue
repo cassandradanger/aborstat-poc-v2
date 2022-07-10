@@ -22,7 +22,7 @@
 <script>
 export default {
   async asyncData ({ $http }) {
-    const data = await $http.$get('/api/users')
+    const data = await $http.$get('/api/info/gestational_limits/MN')
     return { users: data }
   },
   head () {
