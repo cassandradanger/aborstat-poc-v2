@@ -36,10 +36,8 @@ export default {
   },
   methods: {
     submitBtn() {
-      console.log("hi", this.selected);
       axios.get(`/api/info/gestational_limits/${this.selected.abbr}/`)
       .then((res) => {
-        console.log('res', res);
         this.gestational_limit = res.data[0][this.selected.name];           
       }).catch((err) => {
         console.log("there was an error getting gestational limits: ", err);
@@ -48,7 +46,6 @@ export default {
     async asyncData () {
       axios.get('/api/info/list-of-states')
       .then((response) => {
-        console.log('response', response);
         this.states = response.data;
       }).catch((err) => {
         console.log("there was an error getting the list of state: ", err);

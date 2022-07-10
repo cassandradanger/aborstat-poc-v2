@@ -222,7 +222,6 @@ router.get('/info/gestational_limits/:state', function (req, res, next) {
     json: true
   }).then(function success(response) {
       if (response) {
-        console.log('hello', response);
         res.status(200).json([response]);
       }
   }).catch(function error(response) {
