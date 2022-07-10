@@ -3,48 +3,54 @@
     <div>
       <Logo />
       <h1 class="title">
-        nuxt-express
+        aborstat
       </h1>
-      <div>
-        {{ test }}
-        <div class="links">
-          <a
-            href="/users"
-            class="button--green"
-          >
-            Users List
-          </a>
-        </div>
-      </div>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <select v-model="selected" name="states" id="select-state">
+        <option disabled value="">select your state</option>
+        <option v-for="state in states" :value="state" v-bind:key="state.abbr">{{ state.name }}</option>
+      </select>
+      <button @click="submitBtn">submit</button>
+      <DisplayGestationalLimits :data="gestational_limit" />
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import DisplayGestationalLimits from '../components/DisplayGestationalLimits';
+
 export default {
-  async asyncData ({ $http }) {
-    const test = await $http.$get('/api/test')
-    return {
-      test
+  components: { DisplayGestationalLimits },
+  data() {
+    return{
+      selected: {},
+      states: [],
+      gestational_limit: {},
     }
+  },
+  mounted(){
+    this.asyncData();
+  },
+  methods: {
+    submitBtn() {
+      console.log("hi", this.selected);
+      axios.get(`/api/info/gestational_limits/${this.selected.abbr}/`)
+      .then((res) => {
+        console.log('res', res);
+        this.gestational_limit = res.data[0][this.selected.name];           
+      }).catch((err) => {
+        console.log("there was an error getting gestational limits: ", err);
+      })
+    },
+    async asyncData () {
+      axios.get('/api/info/list-of-states')
+      .then((response) => {
+        console.log('response', response);
+        this.states = response.data;
+      }).catch((err) => {
+        console.log("there was an error getting the list of state: ", err);
+      })
+    },
   }
 }
 </script>
