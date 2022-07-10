@@ -13,6 +13,7 @@
       <button @click="submitBtn">submit</button>
       <DisplayGestationalLimits :data="gestational_limit" />
       <h6>abortion status - data provided by <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a></h6>
+      <h6>awesome nuxt/expressjs template provide by <a target="_blank" href="https://github.com/nuxt-community/express-template">nuxt-community</a></h6>
     </div>
   </div>
 </template>

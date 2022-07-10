@@ -30,4 +30,7 @@ ul {
   width: 90%;
   margin: 0 auto;
 }
+li {
+  padding: 10px 0;
+}
 </style>
