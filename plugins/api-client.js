@@ -1,20 +1,18 @@
-import axios from 'axios';
-
 export default (context, inject) => {
   inject('api', api);
   context.$api = api
 }
 
 const api = {
-  fetchStates() {
-    return axios.get('/api/states').then((result) => {
-      return result.data;
-    })
+  async fetchStates() {
+      let response = await fetch('/api/states');
+      let data = await response.json();
+      return data.states;
   },
 
-  fetchGestationalLimits(state) {
-    return axios.get(`/api/gestational_limits/${state}`).then((result) => {
-      return result.data
-    })
+  async fetchGestationalLimits(state) {
+    let response = await fetch(`/api/gestational_limits/${state}`);
+      let data = await response.json();
+      return data;
   }
 }
