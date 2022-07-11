@@ -212,7 +212,17 @@ const api = {
   },
 
   async fetchGestationalLimits(state) {
-    let response = await fetch(`/api/gestational_limits/${state}`);
+    let response = await fetch(`/api/gestational_limits/${state}`,
+    {
+      method:'GET',
+      headers:{
+          "Accept": "application/json, text/plain, */*",
+          "Content-type": "application/json; charset = UTF-8"
+      },
+      mode: 'cors',
+      credentials: 'same-origin',
+      referrerPolicy: 'no-referrer',
+    });
       let data = await response.json();
       return data;
   }
