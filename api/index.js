@@ -205,7 +205,7 @@ const rp = require('request-promise');
 const apiKey = process.env.POLICY_API_KEY;
 
 export default function (req, res, next) {
-  if (req.url === "/states") {
+  if (req.url.includes("/states")) {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(states));
     return;
