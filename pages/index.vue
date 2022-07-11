@@ -4,6 +4,7 @@
       <img class="logo" src="../assets/uterlight.png"/>
       <h1 class="title">
         aborstat
+        {{ result }}
       </h1>
       <label id="select-state">search by state</label>
       <select v-model="selected" name="states" id="select-state">
@@ -29,12 +30,18 @@ export default {
       selected: {},
       states: [],
       gestational_limit: {},
+      result: '',
     }
   },
   mounted(){
     this.asyncData();
+    this.fetchData();
   },
   methods: {
+    async fetchData() {
+      this.result = await this.$api.getData();
+      console.log("RESULT");
+    },
     submitBtn() {
       axios.get(`/api/info/gestational_limits/${this.selected.abbr}/`)
       .then((res) => {
