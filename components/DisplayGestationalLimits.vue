@@ -37,7 +37,7 @@ export default {
     formatException() {
       switch(this.data.exception_life) {
         case true:
-          return 'abortion is not banned in this state, if necessary to save the pregnant person\'s life';
+          return 'abortion is not banned in this state if necessary to save the pregnant person\'s life';
         default:
           return false;
       }
