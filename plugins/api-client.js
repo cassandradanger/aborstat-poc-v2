@@ -5,7 +5,7 @@ export default (context, inject) => {
 
 const api = {
   async fetchStates() {
-      let response = await fetch('/api/states', {
+      let response = await fetch('https://reliable-fenglisu-232031.netlify.app/api/states', {
         method: 'GET',
         credentials: 'same-origin'
       });
