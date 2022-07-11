@@ -5,7 +5,10 @@ export default (context, inject) => {
 
 const api = {
   async fetchStates() {
-      let response = await fetch('/api/states');
+      let response = await fetch('/api/states', {
+        method: 'GET',
+        credentials: 'same-origin'
+      });
       let data = await response.json();
       return data.states;
   },
