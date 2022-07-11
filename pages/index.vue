@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import DisplayGestationalLimits from '../components/DisplayGestationalLimits';
 
 export default {
@@ -36,15 +35,11 @@ export default {
   },
   methods: {
     async getStates() {
-      this.states = await this.$api.fetchStates();
+     this.states = await this.$api.fetchStates();
     },
-    submitBtn() {
-      axios.get(`/api/info/gestational_limits/${this.selected.abbr}/`)
-      .then((res) => {
-        this.gestational_limit = res.data[0][this.selected.name];           
-      }).catch((err) => {
-        console.log("there was an error getting gestational limits: ", err);
-      })
+    async submitBtn() {
+      let response = await this.$api.fetchGestationalLimits(this.selected.abbr);
+      this.gestational_limit = response[this.selected.name];
     },
   }
 }

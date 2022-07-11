@@ -62,7 +62,7 @@ export default {
   ** Server Middleware
   */
   serverMiddleware: [
-    {path: '/api', handler: '~/api/index.js'}
+    { path: '/api', handler: '~/api/index.js' }
   ],
 
   /*

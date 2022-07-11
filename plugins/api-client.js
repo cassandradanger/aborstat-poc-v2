@@ -7,8 +7,14 @@ export default (context, inject) => {
 
 const api = {
   fetchStates() {
-    return axios.get('/api/info/list-of-states').then((result) => {
-      return result.data[0]
+    return axios.get('/api/states').then((result) => {
+      return result.data;
+    })
+  },
+
+  fetchGestationalLimits(state) {
+    return axios.get(`/api/gestational_limits/${state}`).then((result) => {
+      return result.data
     })
   }
 }
