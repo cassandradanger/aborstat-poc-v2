@@ -208,7 +208,8 @@ const states = [
   
 /* GET states listing. */
 router.get('/info/list-of-states', function (req, res, next) {
-  res.json(states)
+  console.log('hi!');
+  res.status(200).json([states]);
 })
 
 
