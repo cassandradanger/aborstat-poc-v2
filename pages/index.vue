@@ -11,9 +11,9 @@
         <option v-for="state in states" :value="state" v-bind:key="state.abbr">{{ state.name }}</option>
       </select>
       <button @click="submitBtn">submit</button>
-      <DisplayGestationalLimits :data="gestational_limit" />
+      <DisplayGestationalLimits :data="gestational_limit" :selected-state="confirmSelected"/>
       <h6>abortion status - data provided by <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a></h6>
-      <h6>nuxt/expressjs template provide by <a target="_blank" href="https://github.com/nuxt-community/express-template">nuxt-community</a></h6>
+      <h6>nuxt/expressjs template provided by <a target="_blank" href="https://github.com/nuxt-community/express-template">nuxt-community</a></h6>
     </div>
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {
       selected: {},
       states: [],
       gestational_limit: {},
+      confirmSelected: ''
     }
   },
   mounted(){
@@ -40,6 +41,7 @@ export default {
     async submitBtn() {
       let response = await this.$api.fetchGestationalLimits(this.selected.abbr);
       this.gestational_limit = response[this.selected.name];
+      this.confirmSelected = this.selected.name;
     },
   }
 }
@@ -72,6 +74,11 @@ export default {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
+  margin: 0 0 30px;
+}
+
+#select-state, button {
+  font-size: 17px;
 }
 
 </style>
