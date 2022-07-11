@@ -49,7 +49,7 @@ export default {
         case 'Any':
           return 'abortion is not banned if necessary to preserve the pregnant person\'s health (which may include mental health)';
         case 'Major Bodily Function':
-          return 'abortion is not banned if the pregnant person would suffer "substantial and irreversible impairment of a major bodily function';
+          return 'abortion is not banned if the pregnant person would suffer "substantial and irreversible impairment of a major bodily function"';
         default:
           return false;
       }
