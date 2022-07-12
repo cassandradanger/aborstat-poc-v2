@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <img class="logo" src="../assets/uterlight.png"/>
+      <img class="logo" src="../assets/uterlight-green.png"/>
       <h1 class="title">
         aborstat
       </h1>
