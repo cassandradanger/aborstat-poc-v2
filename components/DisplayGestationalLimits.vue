@@ -1,12 +1,12 @@
 <template>
   <div class="display-info-wrapper">
-    <label v-if="formatLMP()">general abortion status for {{ selectedState }}:</label>
-    <p v-if="formatLMP()">{{ formatLMP() }}</p>
-    <label v-if="formatException() || formatHealth() || formatFetus() || formatRape()">possible exceptions for {{ selectedState }}:</label>
-    <p v-if="formatException()">{{ formatException() }}</p>
-    <p v-if="formatHealth()">{{ formatHealth() }}</p>
-    <p v-if="formatFetus()">{{ formatFetus() }}</p>
-    <p v-if="formatRape()">{{ formatRape() }}</p>
+    <label v-if="formatLMP()" class="info-label">general abortion status for {{ selectedState }}:</label>
+    <p v-if="formatLMP()"><span>&#8226;</span> {{ formatLMP() }}</p>
+    <label v-if="formatException() || formatHealth() || formatFetus() || formatRape()" class="info-label">possible exceptions for {{ selectedState }}:</label>
+    <p v-if="formatException()"><span>&#8226;</span> {{ formatException() }}</p>
+    <p v-if="formatHealth()"><span>&#8226;</span> {{ formatHealth() }}</p>
+    <p v-if="formatFetus()"><span>&#8226;</span> {{ formatFetus() }}</p>
+    <p v-if="formatRape()"><span>&#8226;</span> {{ formatRape() }}</p>
     <p v-if="selectedState && !formatLMP() && !formatException() && !formatHealth() && !formatFetus() && !formatRape()">
       sorry - there is no data being returned from the <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a> for this state at this time, but please check back later!
     </p>
@@ -92,14 +92,24 @@ export default {
   height: 300px;
   max-width: 800px;
 }
-label {
-  color: black;
-  font-size: 16px;
+p {
+  margin: 5px 20px 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.info-label {
+  font-size: 22px;
+  background-color: #9c3a9d;
+  color: white;
+  display: block;
+  padding: 0 0 5px 10px;
+  margin: 30px 0 10px;
+  font-weight: 400;
 }
 
 @media only screen and (max-width: 520px) {
   .display-info-wrapper {
-    height: 400px;
+    height: 450px;
   }
 }
 </style>

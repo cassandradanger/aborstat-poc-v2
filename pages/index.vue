@@ -12,8 +12,10 @@
       </select>
       <button @click="submitBtn">submit</button>
       <DisplayGestationalLimits :data="gestational_limit" :selected-state="confirmSelected"/>
-      <h6>abortion status - data provided by <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a>, which should be consistent with the data from the <a href=" https://www.guttmacher.org/state-policy/laws-policies">Guttmacher Institute</a></h6>
-      <h6>nuxt/expressjs template provided by <a target="_blank" href="https://github.com/nuxt-community/express-template">nuxt-community</a></h6>
+      <span class="data-attr-wrapper">
+        <h6>abortion status - data provided by <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a>, which should be consistent with the data from the <a href=" https://www.guttmacher.org/state-policy/laws-policies">Guttmacher Institute</a></h6>
+        <h6>nuxt/expressjs template provided by <a target="_blank" href="https://github.com/nuxt-community/express-template">nuxt-community</a></h6>
+      </span>
     </div>
   </div>
 </template>
@@ -54,11 +56,6 @@ export default {
   display: flex;
   justify-content: center;
   text-align: center;
-}
-.logo {
-  height: 200px;
-}
-.title {
   font-family:
     'Quicksand',
     'Source Sans Pro',
@@ -69,16 +66,25 @@ export default {
     'Helvetica Neue',
     Arial,
     sans-serif;
+}
+.logo {
+  height: 130px;
+}
+.title {
   display: block;
-  font-weight: 300;
-  font-size: 100px;
+  font-size: 50px;
+  font-weight: 500;
   color: #35495e;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin: 0 0 30px;
 }
 
 #select-state, button {
   font-size: 17px;
+}
+
+.data-attr-wrapper {
+  margin-bottom: 0;
 }
 
 </style>
