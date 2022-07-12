@@ -8,7 +8,7 @@
     <p v-if="formatFetus()">{{ formatFetus() }}</p>
     <p v-if="formatRape()">{{ formatRape() }}</p>
     <p v-if="selectedState && !formatLMP() && !formatException() && !formatHealth() && !formatFetus() && !formatRape()">
-      sorry - there is no data being returned from the <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a> at this time, but please check back later!
+      sorry - there is no data being returned from the <a target="_blank" href="http://www.abortionpolicyapi.com">Abortion Policy API</a> for this state at this time, but please check back later!
     </p>
   </div>
 </template>
