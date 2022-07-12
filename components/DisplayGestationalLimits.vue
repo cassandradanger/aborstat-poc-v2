@@ -109,7 +109,7 @@ p {
 
 @media only screen and (max-width: 520px) {
   .display-info-wrapper {
-    height: 450px;
+    height: 600px;
   }
 }
 </style>
