@@ -107,7 +107,7 @@ p {
   font-weight: 400;
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 730px) {
   .display-info-wrapper {
     height: 600px;
   }
